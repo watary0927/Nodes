@@ -1,0 +1,331 @@
+﻿buildscript {
+    repositories {jcenter() google()}
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.0'
+}
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+// Android Resolver Repos Start
+([rootProject] + (rootProject.subprojects as List)).each {
+    ext {
+        it.setProperty("android.useAndroidX", true)
+        it.setProperty("android.enableJetifier", true)
+    }
+}
+([rootProject] + (rootProject.subprojects as List)).each { project ->
+    project.repositories {
+        def unityProjectPath = "file:///" + file(rootProject.projectDir.path + "/../../").absolutePath
+        maven {
+            url "https://maven.google.com"
+        }
+        maven {
+            url "https://maven.google.com/" // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:7
+        }
+        mavenLocal()
+        jcenter()
+        mavenCentral()
+    }
+}
+// Android Resolver Repos End
+apply plugin: 'com.android.application'
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+// Android Resolver Dependencies Start
+    implementation 'com.google.android.gms:play-services-ads:18.2.0' // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:7
+// Android Resolver Dependencies End
+    implementation(name: 'androidx.arch.core.core-runtime-2.0.0 2', ext:'aar')
+    implementation(name: 'androidx.arch.core.core-runtime-2.0.0 3', ext:'aar')
+    implementation(name: 'androidx.arch.core.core-runtime-2.0.0 4', ext:'aar')
+    implementation(name: 'androidx.arch.core.core-runtime-2.0.0 5', ext:'aar')
+    implementation(name: 'androidx.arch.core.core-runtime-2.0.0 6', ext:'aar')
+    implementation(name: 'androidx.asynclayoutinflater.asynclayoutinflater-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.asynclayoutinflater.asynclayoutinflater-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.asynclayoutinflater.asynclayoutinflater-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.asynclayoutinflater.asynclayoutinflater-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.asynclayoutinflater.asynclayoutinflater-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.browser.browser-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.browser.browser-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.browser.browser-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.browser.browser-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.browser.browser-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.coordinatorlayout.coordinatorlayout-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.coordinatorlayout.coordinatorlayout-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.coordinatorlayout.coordinatorlayout-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.coordinatorlayout.coordinatorlayout-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.coordinatorlayout.coordinatorlayout-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.core.core-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.core.core-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.core.core-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.core.core-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.core.core-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.cursoradapter.cursoradapter-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.cursoradapter.cursoradapter-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.cursoradapter.cursoradapter-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.cursoradapter.cursoradapter-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.cursoradapter.cursoradapter-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.customview.customview-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.customview.customview-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.customview.customview-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.customview.customview-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.customview.customview-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.documentfile.documentfile-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.documentfile.documentfile-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.documentfile.documentfile-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.documentfile.documentfile-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.documentfile.documentfile-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.drawerlayout.drawerlayout-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.drawerlayout.drawerlayout-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.drawerlayout.drawerlayout-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.drawerlayout.drawerlayout-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.drawerlayout.drawerlayout-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.fragment.fragment-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.fragment.fragment-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.fragment.fragment-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.fragment.fragment-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.fragment.fragment-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.interpolator.interpolator-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.interpolator.interpolator-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.interpolator.interpolator-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.interpolator.interpolator-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.interpolator.interpolator-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.legacy.legacy-support-core-ui-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.legacy.legacy-support-core-ui-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.legacy.legacy-support-core-ui-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.legacy.legacy-support-core-ui-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.legacy.legacy-support-core-ui-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.legacy.legacy-support-core-utils-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.legacy.legacy-support-core-utils-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.legacy.legacy-support-core-utils-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.legacy.legacy-support-core-utils-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.legacy.legacy-support-core-utils-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-livedata-2.0.0 2', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-livedata-2.0.0 3', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-livedata-2.0.0 4', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-livedata-2.0.0 5', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-livedata-2.0.0 6', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-livedata-core-2.0.0 2', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-livedata-core-2.0.0 3', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-livedata-core-2.0.0 4', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-livedata-core-2.0.0 5', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-livedata-core-2.0.0 6', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-runtime-2.0.0 2', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-runtime-2.0.0 3', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-runtime-2.0.0 4', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-runtime-2.0.0 5', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-runtime-2.0.0 6', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-viewmodel-2.0.0 2', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-viewmodel-2.0.0 3', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-viewmodel-2.0.0 4', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-viewmodel-2.0.0 5', ext:'aar')
+    implementation(name: 'androidx.lifecycle.lifecycle-viewmodel-2.0.0 6', ext:'aar')
+    implementation(name: 'androidx.loader.loader-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.loader.loader-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.loader.loader-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.loader.loader-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.loader.loader-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.localbroadcastmanager.localbroadcastmanager-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.localbroadcastmanager.localbroadcastmanager-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.localbroadcastmanager.localbroadcastmanager-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.localbroadcastmanager.localbroadcastmanager-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.localbroadcastmanager.localbroadcastmanager-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.print.print-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.print.print-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.print.print-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.print.print-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.print.print-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.slidingpanelayout.slidingpanelayout-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.slidingpanelayout.slidingpanelayout-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.slidingpanelayout.slidingpanelayout-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.slidingpanelayout.slidingpanelayout-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.slidingpanelayout.slidingpanelayout-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.swiperefreshlayout.swiperefreshlayout-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.swiperefreshlayout.swiperefreshlayout-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.swiperefreshlayout.swiperefreshlayout-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.swiperefreshlayout.swiperefreshlayout-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.swiperefreshlayout.swiperefreshlayout-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.versionedparcelable.versionedparcelable-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.versionedparcelable.versionedparcelable-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.versionedparcelable.versionedparcelable-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.versionedparcelable.versionedparcelable-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.versionedparcelable.versionedparcelable-1.0.0 6', ext:'aar')
+    implementation(name: 'androidx.viewpager.viewpager-1.0.0 2', ext:'aar')
+    implementation(name: 'androidx.viewpager.viewpager-1.0.0 3', ext:'aar')
+    implementation(name: 'androidx.viewpager.viewpager-1.0.0 4', ext:'aar')
+    implementation(name: 'androidx.viewpager.viewpager-1.0.0 5', ext:'aar')
+    implementation(name: 'androidx.viewpager.viewpager-1.0.0 6', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-18.2.0 2', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-18.2.0 3', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-18.2.0 4', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-18.2.0 5', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-18.2.0 6', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-18.2.0 7', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-18.2.0 8', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-base-18.2.0 2', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-base-18.2.0 3', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-base-18.2.0 4', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-base-18.2.0 5', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-base-18.2.0 6', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-identifier-17.0.0 2', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-identifier-17.0.0 3', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-identifier-17.0.0 4', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-identifier-17.0.0 5', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-identifier-17.0.0 6', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-lite-18.2.0 2', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-lite-18.2.0 3', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-lite-18.2.0 4', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-ads-lite-18.2.0 5', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-basement-17.0.0 2', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-basement-17.0.0 3', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-basement-17.0.0 4', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-basement-17.0.0 5', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-basement-17.0.0 6', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-gass-18.2.0 2', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-gass-18.2.0 3', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-gass-18.2.0 4', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-gass-18.2.0 5', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-gass-18.2.0 6', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-17.0.0 2', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-17.0.0 3', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-17.0.0 4', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-17.0.0 5', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-17.0.0 6', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-base-17.0.0 2', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-base-17.0.0 4', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-base-17.0.0 5', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-base-17.0.0 6', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-base-17.0.0 7', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-impl-17.0.0 2', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-impl-17.0.0 4', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-impl-17.0.0 5', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-impl-17.0.0 6', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-impl-17.0.0 7', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-sdk-17.0.0 2', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-sdk-17.0.0 4', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-sdk-17.0.0 5', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-sdk-17.0.0 6', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-sdk-17.0.0 7', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-sdk-api-17.0.0 2', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-sdk-api-17.0.0 4', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-sdk-api-17.0.0 5', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-sdk-api-17.0.0 6', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-measurement-sdk-api-17.0.0 7', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-stats-17.0.0 2', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-stats-17.0.0 4', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-stats-17.0.0 5', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-stats-17.0.0 6', ext:'aar')
+    implementation(name: 'com.google.android.gms.play-services-stats-17.0.0 7', ext:'aar')
+    implementation(name: 'firebase-analytics-impl-16.0.0', ext:'aar')
+    implementation(name: 'firebase-common-16.0.0', ext:'aar')
+    implementation(name: 'firebase-iid-16.2.0', ext:'aar')
+    implementation(name: 'firebase-iid-interop-16.0.0', ext:'aar')
+    implementation(name: 'firebase-messaging-17.1.0', ext:'aar')
+    implementation(name: 'googlemobileads-unity', ext:'aar')
+    implementation(name: 'ncmbfcmplugin', ext:'aar')
+    implementation(name: 'play-services-base-15.0.1', ext:'aar')
+    implementation(name: 'play-services-basement-15.0.1', ext:'aar')
+    implementation(name: 'play-services-measurement-base-15.0.0', ext:'aar')
+    implementation(name: 'play-services-tasks-15.0.1', ext:'aar')
+    implementation(name: 'support-compat-26.0.2', ext:'aar')
+    implementation(name: 'support-core-utils-25.3.1', ext:'aar')
+    implementation(name: 'support-core-utils-26.0.2', ext:'aar')
+    implementation(name: 'support-v4-26.0.2', ext:'aar')
+    implementation project(':GoogleMobileAdsPlugin')
+    implementation project(':unity-android-resources')
+}
+
+// Android Resolver Exclusions Start
+android {
+  packagingOptions {
+      exclude ('/lib/arm64-v8a/*' + '*')
+      exclude ('/lib/armeabi/*' + '*')
+      exclude ('/lib/mips/*' + '*')
+      exclude ('/lib/mips64/*' + '*')
+      exclude ('/lib/x86/*' + '*')
+      exclude ('/lib/x86_64/*' + '*')
+  }
+}
+// Android Resolver Exclusions End
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        applicationId 'com.Unity2D.Nodes'
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+        versionCode 1
+        versionName '1.1'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    aaptOptions {
+        noCompress = ['.unity3d', '.ress', '.resource', '.obb']
+        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('/Users/BIdway/Desktop/Nodes1.4/user.keystore')
+            storePassword 'shougi10216102'
+            keyAlias 'nodes'
+            keyPassword 'shougi10216102'
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled true
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-unity.txt', 'proguard-user.txt'
+            signingConfig signingConfigs.release
+            jniDebuggable true
+        }
+        release {
+            minifyEnabled true
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-unity.txt', 'proguard-user.txt'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    packagingOptions {
+        doNotStrip '*/armeabi-v7a/*.so'
+    }
+
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = false
+        }
+        abi {
+            enableSplit = true
+        }
+    }
+}

@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 56ff00d08a37345f6945f05f3a84faa3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - arrow: {instanceID: 0}
+  - OffenceText: {instanceID: 0}
+  - TimerFillImage: {instanceID: 0}
+  - canvasbutton: {instanceID: 0}
+  - Nextgame: {instanceID: 0}
+  - Returnmenu: {fileID: 8035434363335561320, guid: 0b255f8bc5c6246ddb7b36c7aa971f04,
+      type: 3}
+  - Ratingchange: {instanceID: 0}
+  - returnbutton: {fileID: 7233043645605732552, guid: b2a1beb1cb8eb4a9cbe227ca60a32b1e,
+      type: 3}
+  - black: {fileID: 4066299407424791995, guid: 5a00e9d7d9cc54d1988a336665771dff, type: 3}
+  - blackcircle: {fileID: 6417669527952866624, guid: 2e745fa27d35843ed81fca957e391a9d,
+      type: 3}
+  - white: {fileID: 7543551031160674988, guid: f9b0d6e31b97e40c6864ed7a87a050ee, type: 3}
+  - whitecircle: {fileID: 4965045297992488241, guid: abd47e5224de34d0d9c0879d0d56c851,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
